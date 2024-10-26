@@ -68,6 +68,32 @@
     animation-delay: 0.4s !important;
 }
 
+.circle
+{
+    background-color: white;
+    width: 5px;
+    height: 5px;
+    margin-left: 15px;
+    margin-right: 8px;
+    border-radius: 50%;
+    transform: translateY(1px);
+}
+
+.online
+{
+    background-color: lightgreen;
+}
+
+.dns
+{
+    background-color: rgb(255, 0, 0);
+}
+
+.offline
+{
+    background-color: gray;
+}
+
 #discord-info-text span {
     margin-right: 15px;
     display: flex;

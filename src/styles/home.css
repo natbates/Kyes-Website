@@ -28,6 +28,13 @@
     animation-delay: 0.4s !important;
 }
 
+.highlighted
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    color: lightgray !important;
+}
+
 .service-text
 {
     font-size: 1rem;
@@ -43,6 +50,7 @@
     display: inline-flex; /* Or use 'inline-block' */
     align-items: center;  /* Centers the image vertically */
     justify-content: center; /* Centers the image horizontally */
+    text-wrap: nowrap;
 }
 
 .service-image {

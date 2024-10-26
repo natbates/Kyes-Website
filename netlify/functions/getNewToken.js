@@ -9,6 +9,8 @@ const TOKEN_URL = `https://accounts.spotify.com/api/token`;
 const basicAuth = Buffer.from(`${clientID}:${clientSecret}`).toString('base64');
 
 const getAccessToken = async () => {
+
+    console.log("Creating new access token")
     const response = await fetch(TOKEN_URL, {
         method: 'POST',
         headers: {
