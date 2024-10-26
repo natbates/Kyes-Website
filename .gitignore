@@ -1,0 +1,15 @@
+.env
+
+/node_modules
+/.pnp
+.pnp.js
+package-lock.json
+
+/coverage
+
+/build
+
+npm-debug.log*
+
+# Local Netlify folder
+.netlify

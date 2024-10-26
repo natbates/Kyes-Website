@@ -1,0 +1,79 @@
+/* Nav Bar */
+
+.top-bar-holder
+{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-bar
+{
+    width: fit-content;
+    transition: border-color 0.5s ease, color 0.5s ease-out;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.nav-bar nav {
+    display: flex;
+    gap: 70px;
+}
+
+.nav-bar a {
+    color: var(--primary-color);
+    text-align: start;
+    padding: 14px 5px;
+    padding-left: 0;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background-color 0.2s ease, color 0.2s ease-out;
+    
+}
+
+.nav-bar a.active
+{
+    font-weight: bold;
+    color: var(--third-color);
+}
+
+.nav-bar a:first-child
+{
+    padding-left: 0px;
+}
+
+.nav-bar a:hover {
+    color: var(--third-color);
+}
+
+@media (max-width: 768px) {
+    .top-bar-holder {
+        justify-content: center;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .nav-bar {
+        position: relative;
+        margin: 0;
+        z-index: 1000;
+    }
+
+    .nav-bar nav {
+        align-items: center; /* Center items */
+        gap: 10vw;
+    }
+
+    .nav-bar a {
+        padding: 10px 0; /* Adjust padding for better spacing */
+        width: 100%; /* Make each link take up the full width */
+        text-align: center; /* Center the text */
+    }
+
+    .nav-bar a.active {
+        color: var(--third-color);
+        border-bottom: none;
+    }
+}

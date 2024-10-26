@@ -1,0 +1,119 @@
+
+#dashboard
+{
+    height: 90%;
+    padding-bottom: 50px;
+}
+
+#dashboard h1, h2, p
+{
+    opacity: 0;
+    animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
+}
+
+#dashboard h1 {
+    animation-delay: 0.2s !important; 
+}
+  
+#dashboard p {
+    animation-delay: 0.4s !important;
+}
+
+#photo-input
+{
+    margin-top: 10px;
+    opacity: 0;
+    animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
+    animation-delay: 1s !important;
+}
+
+#photo-submit
+{
+    opacity: 0;
+    margin-left: 10px;
+    margin-top: 30px;
+    animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
+    animation-delay: 1s !important;
+}
+
+#discord-submit
+{
+    opacity: 0;
+    margin-left: 10px;
+    margin-top: 30px;
+    animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
+    animation-delay: 1.8s !important;
+}
+
+#upload-image-container
+{
+    padding-top: 20px;
+}
+
+#upload-image-container h2
+{
+    animation-delay: 0.6s !important;
+}
+
+#upload-image-container p
+{
+    animation-delay: 0.8s !important;
+}
+
+
+#remove-image-container
+{
+    padding-top: 20px;
+}
+
+#remove-image-container h2
+{
+    animation-delay: 1.2s !important;
+}
+
+#remove-image-container p
+{
+    animation-delay: 1.4s !important;
+}
+#discord-link-container
+{
+    padding-bottom: 50px;
+}
+
+#discord-link-container h2
+{
+    animation-delay: 1.6s !important;
+}
+
+#discord-link-container p
+{
+    animation-delay: 1.8s !important;
+}
+
+#discord-text-field
+{
+    width: 347px;
+    opacity: 0;
+    animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
+    animation-delay: 1.8s !important;
+}
+
+@media (max-width: 768px) {
+    #photo-input-button {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #photo-input-button::after {
+        content: "+";
+        font-size: 24px;
+        color: white;
+    }
+
+}

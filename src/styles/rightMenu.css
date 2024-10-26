@@ -1,0 +1,30 @@
+
+#right-menu-bar
+{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    width: 50px;
+    top: 0;
+    right: 0;
+}
+
+#right-menu-bar nav
+{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.right-menu-bar-icon
+{
+    transform: scale(0.6);
+    transition: transform 0.3s ease;
+}
+
+.right-menu-bar-icon:hover
+{
+    transform: scale(0.8);
+}
