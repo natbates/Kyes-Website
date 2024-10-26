@@ -36,7 +36,7 @@ const Home = () =>
             <p>Astrophysist at the University of Leicster</p>
             <div className = "service-text">
                 {error ? <div className="error-message">Error fetching Spotify data</div> :
-                <span><img className = "service-image" src = "images/spotify.png"></img> Listening to: {currentSongData === null ? <Loading className = "service-loader"/> : <p>{currentSong}</p>}</span>
+                <span><img className = "service-image" src = "images/spotify.png"></img> Listening to: {currentSongData === null ? <Loading className = "service-loader"/> : <p>{currentSongData.item.name}</p>}</span>
                 }
             </div>
             <div className = "service-text">
