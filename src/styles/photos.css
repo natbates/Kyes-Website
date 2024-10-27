@@ -54,17 +54,17 @@
     #photo-scroll {
         margin: 0;
         padding: 0;
+        align-items: center;
     }
 
     .photo-item {
         justify-content: center; 
-        max-width: 60vh;
     }
 
     .photo-item img
     {
         height: auto;
-        width: 95%;
+        width: 95vw;
     }
 
     .photo-item.grayed-out {
