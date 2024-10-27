@@ -32,13 +32,12 @@ const LogIn = () => {
             });
 
             const data = await response.json();
-            console.log("test");
-            console.log("returned data", data);
 
             if (response.ok) {
-                console.log("returned data", data);
-                auth.login(); 
-                navigate("/dashboard"); 
+                if (data.auth){
+                    auth.login(); 
+                    navigate("/dashboard"); 
+                }
             } else {
                 setError(data.message || "Invalid email or password. Please try again.");
             }
