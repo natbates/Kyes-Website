@@ -24,6 +24,7 @@
 }
   
 #home p {
+    margin-bottom: 35px;
     font-size: 1.4rem !important;
     animation-delay: 0.4s !important;
 }
@@ -33,6 +34,9 @@
     padding-left: 8px;
     padding-right: 8px;
     color: lightgray !important;
+    max-width: 280px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .service-text

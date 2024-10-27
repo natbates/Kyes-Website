@@ -84,7 +84,12 @@
     background-color: lightgreen;
 }
 
-.dns
+.idle
+{
+    background-color: orange;
+}
+
+.dnd
 {
     background-color: rgb(255, 0, 0);
 }
