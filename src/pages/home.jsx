@@ -12,7 +12,7 @@ const Home = () => {
     const [socket, setSocket] = useState(null);
     
     const discordUserId = process.env.REACT_APP_DISCORD_USER_ID;
-
+    console.log("user id: ", discordUserId);
     useEffect(() => {
         let retryCount = 0;
         const maxRetries = 3;
@@ -132,11 +132,10 @@ const Home = () => {
             <p>Astrophysist at the University of Leicester</p>
             <div className="service-text">
                 {spotifyError ? (
-                    <>
-                    <div className="error-message">{spotifyError}</div>
-                    <img className="service-image" src="images/spotify.png" alt="Spotify logo" />
-                    Listening to: Nothing
-                    </>
+                    <span>
+                        <img className="service-image" src="images/spotify.png" alt="Spotify logo" />
+                        Listening to: Nothing
+                    </span>
                 ) : (
                     <span>
                         <img className="service-image" src="images/spotify.png" alt="Spotify logo" />
