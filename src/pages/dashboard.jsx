@@ -38,26 +38,26 @@ const Dashboard = () => {
     };
 
     const handleUpload = async (e) => {
-        const files = e.target.files; // Get all selected files
+        const files = e.target.files; 
         if (files.length > 0) {
-            const uploadPromises = []; // Array to hold upload promises
+            const uploadPromises = [];
             for (let i = 0; i < files.length; i++) {
                 const file = files[i];
                 const imageRef = ref(storage, `space-photos/${file.name}`);
                 const uploadPromise = uploadBytes(imageRef, file)
                     .then(() => {
                         console.log("File uploaded:", file.name);
-                        return `Uploaded ${file.name}`; // Return success message
+                        return `Uploaded ${file.name}`; 
                     })
                     .catch(error => {
                         console.error("Error uploading file:", error);
-                        return `Error uploading ${file.name}`; // Return error message
+                        return `Error uploading ${file.name}`; 
                     });
-                uploadPromises.push(uploadPromise); // Add the promise to the array
+                uploadPromises.push(uploadPromise);
             }
-            const results = await Promise.all(uploadPromises); // Wait for all uploads to complete
-            setConfirmation(results.join(', ')); // Combine results into a single message
-            fetchImages(); // Refresh the image list after upload
+            const results = await Promise.all(uploadPromises); 
+            setConfirmation(results.join(', ')); 
+            fetchImages(); 
         }
     };
 
