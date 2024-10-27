@@ -85,6 +85,7 @@ const Dashboard = () => {
                     id="photo-input"
                     onChange={handleUpload}
                 />
+                <button className="submit-button">Submit</button> {/* Always rendered */}
             </div>
 
             <div id="remove-image-container">
