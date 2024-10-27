@@ -57,17 +57,17 @@
 }
 
 .service-text span {
-    display: inline-flex; /* Or use 'inline-block' */
-    align-items: center;  /* Centers the image vertically */
-    justify-content: center; /* Centers the image horizontally */
+    display: inline-flex; 
+    align-items: center;  
+    justify-content: center; 
     text-wrap: nowrap;
 }
 
 .service-image {
     height: 20px;
-    width: auto; /* Maintain aspect ratio */
-    display: block; /* Ensure the image respects parent alignment */
-    margin: 0 auto; /* Center image if the parent is block or flex */
+    width: auto; 
+    display: block; 
+    margin: 0 auto;
     margin-right: 10px;
 }
 

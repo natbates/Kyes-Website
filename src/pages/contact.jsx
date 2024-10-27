@@ -4,7 +4,7 @@ import { useState } from "react";
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: "",
-        _replyto: "", // Change email to _replyto
+        _replyto: "",
         message: ""
     });
 
@@ -18,7 +18,7 @@ const Contact = () => {
             <p>Feel free to contact me with any enquiries.</p>
             <div id="contact-form">
                 <form
-                    action="https://formspree.io/f/xeqykrak"
+                    action="https://formspree.io/f/mldeggqv"
                     method="POST"
                 >
                     <div id = "name-container">
@@ -38,8 +38,8 @@ const Contact = () => {
                             type="email"
                             id="email"
                             placeholder="email"
-                            name="_replyto" // Update name to _replyto
-                            value={formData._replyto} // Update value to formData._replyto
+                            name="_replyto" 
+                            value={formData._replyto} 
                             onChange={handleChange}
                             required
                         />

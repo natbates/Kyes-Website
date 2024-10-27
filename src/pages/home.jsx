@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../styles/home.css";
+import "../styles/discord.css";
 import { Link } from 'react-router-dom';
 import Loading from "../comps/loading";
 import { useAuth } from "../contexts/authContext";
@@ -21,7 +22,6 @@ const Home = () => {
             
 
             newSocket.onopen = () => {
-                // Send initial IDENTIFY payload
                 newSocket.send(JSON.stringify({
                     op: 2,
                     d: {
@@ -35,20 +35,17 @@ const Home = () => {
             newSocket.onmessage = (event) => {
                 const data = JSON.parse(event.data);
 
-                // Handle different message types
                 switch (data.op) {
-                    case 0: // Event
+                    case 0: 
                         handlePresenceUpdate(data.d);
                         break;
-                    case 1: // Hello
-                        // Send heartbeat at the interval they specify
+                    case 1: 
                         const heartbeat = setInterval(() => {
                             if (newSocket.readyState === WebSocket.OPEN) {
                                 newSocket.send(JSON.stringify({ op: 3 }));
                             }
                         }, data.d.heartbeat_interval);
                         
-                        // Store the interval for cleanup
                         newSocket.heartbeatInterval = heartbeat;
                         break;
                     default:
@@ -68,7 +65,6 @@ const Home = () => {
             };
 
             newSocket.onclose = (event) => {
-                // Clear the heartbeat interval
                 if (newSocket.heartbeatInterval) {
                     clearInterval(newSocket.heartbeatInterval);
                 }
@@ -96,7 +92,6 @@ const Home = () => {
 
     const handlePresenceUpdate = (data) => {
 
-        // Update Discord status
         if (data.discord_status) {
             setDiscordStatus({
                 status: data.discord_status,
@@ -104,7 +99,6 @@ const Home = () => {
             });
         }
 
-        // Update Spotify data
         if (data.spotify && data.listening_to_spotify) {
             setCurrentSongData({
                 item: {
@@ -163,7 +157,6 @@ const Home = () => {
                             <span>
                                 <div className={`${discordStatus.status || "offline"} circle`}></div>
                                 {' '}{discordStatus.status}
-                                {discordStatus.activity && ` - Playing ${discordStatus.activity}`}
                             </span>
                         )}
                     </span>

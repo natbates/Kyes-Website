@@ -62,14 +62,14 @@
     }
 
     .nav-bar nav {
-        align-items: center; /* Center items */
+        align-items: center; 
         gap: 10vw;
     }
 
     .nav-bar a {
-        padding: 10px 0; /* Adjust padding for better spacing */
-        width: 100%; /* Make each link take up the full width */
-        text-align: center; /* Center the text */
+        padding: 10px 0; 
+        width: 100%; 
+        text-align: center; 
     }
 
     .nav-bar a.active {

@@ -1,5 +1,10 @@
-#photos h1, p
-{
+/* photos.css */
+
+#photos {
+    max-width: 100% !important;
+}
+
+#photos h1, #photos p {
     opacity: 0;
     animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
 }
@@ -8,11 +13,69 @@
     animation-delay: 0.2s !important; 
 }
 
-#photos
-{
-    max-width: 100% !important;
-}
-  
 #photos p {
     animation-delay: 0.4s !important;
+}
+
+#photo-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; 
+    overflow-x: scroll;
+}
+
+#photo-scroll {
+    display: flex;
+    flex-direction: row;  
+    padding-top: 20px; 
+    width: 100%;
+}
+
+.photo-item {
+    justify-content: center;
+    padding: 10px;
+    transition: filter 0.3s ease; 
+    max-height: 60vh;
+    opacity: 0;
+    animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
+    animation-delay: 0.6s !important;
+}
+
+.photo-item.grayed-out {
+    filter: grayscale(100%); 
+}
+
+.photo-item img {
+    height: 100%;
+    width: auto;  
+}
+
+@media (max-width: 768px) {
+    #photo-scroll {
+        margin: 0;
+        padding: 0;
+    }
+
+    .photo-item {
+        justify-content: center; 
+        max-width: 60vh;
+    }
+
+    .photo-item img
+    {
+        height: auto;
+        width: 95%;
+    }
+
+    .photo-item.grayed-out {
+        filter: none
+    }
+
+    #photo-container {
+        flex-direction: column;
+    }
+
+    #photo-scroll {
+        flex-direction: column;
+    }
 }

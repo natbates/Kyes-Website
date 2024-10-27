@@ -64,6 +64,7 @@
 #remove-image-container
 {
     padding-top: 20px;
+    padding-bottom: 80px;
 }
 
 #remove-image-container h2
@@ -75,27 +76,39 @@
 {
     animation-delay: 1.4s !important;
 }
-#discord-link-container
-{
-    padding-bottom: 50px;
+
+#image-grid {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0;
+    overflow-x: scroll;
 }
 
-#discord-link-container h2
-{
+.image-container {
+    position: relative;
+    margin: 10px;
+    opacity: 0;
+    animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
     animation-delay: 1.6s !important;
 }
 
-#discord-link-container p
-{
-    animation-delay: 1.8s !important;
+.uploaded-image {
+    width: 150px; 
+    height: auto; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#discord-text-field
-{
-    width: 347px;
-    opacity: 0;
-    animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
-    animation-delay: 1.8s !important;
+.delete-button {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -117,3 +130,4 @@
     }
 
 }
+

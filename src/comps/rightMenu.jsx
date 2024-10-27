@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../styles/rightMenu.css'; // Ensure this path is correct based on your folder structure
+import '../styles/rightMenu.css';
 import { useAuth } from '../contexts/authContext';
 
 const RightMenu = () => {
-    const location = useLocation(); // Get current location
+    const location = useLocation(); 
     const auth = useAuth();
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Change this based on actual authentication state
+    const [isLoggedIn, setIsLoggedIn] = useState(false); 
+
 
     useEffect(() => {
         setIsLoggedIn(auth.isAuthenticated)
