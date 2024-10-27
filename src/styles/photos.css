@@ -19,31 +19,32 @@
 
 #photo-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 100vh; 
-    overflow-x: scroll;
+    padding-top: 30px;
 }
 
 #photo-scroll {
     display: flex;
-    flex-direction: row;  
-    padding-top: 20px; 
+    flex-direction: column;  
+    padding-bottom: 20px; 
     width: 100%;
 }
 
 .photo-item {
     justify-content: center;
-    padding: 10px;
     transition: filter 0.3s ease; 
-    max-height: 60vh;
+    margin-bottom: 20px;
     opacity: 0;
     animation: FlyUp 0.5s ease, appear 0.5s ease forwards !important;
     animation-delay: 0.6s !important;
+    width: 90%
 }
 
-.photo-item img {
-    height: 100%;
-    width: auto;  
+.photo-item img
+{
+    height: auto;
+    width: 90%
 }
 
 @media (max-width: 768px) {
@@ -55,19 +56,5 @@
 
     .photo-item {
         justify-content: center; 
-    }
-
-    .photo-item img
-    {
-        height: auto;
-        width: 95vw;
-    }
-
-    #photo-container {
-        flex-direction: column;
-    }
-
-    #photo-scroll {
-        flex-direction: column;
     }
 }
