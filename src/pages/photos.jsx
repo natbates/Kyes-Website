@@ -46,14 +46,11 @@ const Photos = () => {
                                 <div
                                     className={`photo-item ${focusedIndex !== index ? 'grayed-out' : ''}`}
                                     key={photo.name}
-                                    onMouseEnter={() => setFocusedIndex(index)}
-                                    onMouseLeave={() => setFocusedIndex(null)}
                                 >
                                     <img
                                         src={photo.url} 
                                         alt={photo.name}
                                         style={{
-                                            animationDelay: `${index * 0.1 + 0.5}s`,
                                             pointerEvents: "none"
                                         }}
                                         onAnimationEnd={(e) => e.target.style.pointerEvents = "auto"}
