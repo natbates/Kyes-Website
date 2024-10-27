@@ -1,5 +1,5 @@
 import "../styles/login.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/authContext';
 import Loading from "../comps/loading";
@@ -11,6 +11,12 @@ const LogIn = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const auth = useAuth();
+
+    useEffect(() => {
+        setUserName("");
+        setPassword("");
+        setError("")
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
