@@ -37,6 +37,12 @@
     max-width: 280px;
     text-overflow: ellipsis;
     overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.highlighted:hover
+{
+    color: var(--third-color) !important;
 }
 
 .service-text
