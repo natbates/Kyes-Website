@@ -38,18 +38,26 @@ const Dashboard = () => {
     };
 
     const handleUpload = async (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const imageRef = ref(storage, `space-photos/${file.name}`);
-            try {
-                await uploadBytes(imageRef, file);
-                console.log("File uploaded:", file.name);
-                fetchImages();
-                setConfirmation(`Uploaded ${file.name}`); 
-            } catch (error) {
-                console.error("Error uploading file:", error);
-                setConfirmation(`Error uploading ${file.name}`);
+        const files = e.target.files; // Get all selected files
+        if (files.length > 0) {
+            const uploadPromises = []; // Array to hold upload promises
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const imageRef = ref(storage, `space-photos/${file.name}`);
+                const uploadPromise = uploadBytes(imageRef, file)
+                    .then(() => {
+                        console.log("File uploaded:", file.name);
+                        return `Uploaded ${file.name}`; // Return success message
+                    })
+                    .catch(error => {
+                        console.error("Error uploading file:", error);
+                        return `Error uploading ${file.name}`; // Return error message
+                    });
+                uploadPromises.push(uploadPromise); // Add the promise to the array
             }
+            const results = await Promise.all(uploadPromises); // Wait for all uploads to complete
+            setConfirmation(results.join(', ')); // Combine results into a single message
+            fetchImages(); // Refresh the image list after upload
         }
     };
 
@@ -83,9 +91,10 @@ const Dashboard = () => {
                 <input
                     type="file"
                     id="photo-input"
+                    multiple // Allow multiple files
                     onChange={handleUpload}
                 />
-                <button className="submit-button">Submit</button> {/* Always rendered */}
+                <button className="submit-button">Submit</button>
             </div>
 
             <div id="remove-image-container">
