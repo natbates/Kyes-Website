@@ -8,8 +8,6 @@ const Dashboard = () => {
     const auth = useAuth();
     const navigate = useNavigate();
 
-    console.log(auth);
-
     useEffect(() => {
         if (!auth.isAuthenticated && !auth.loading) {
             navigate("/login"); // Make sure this matches your actual route

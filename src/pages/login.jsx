@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/authContext';
 import Loading from "../comps/loading";
 
 const LogIn = () => {
-    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -16,6 +16,7 @@ const LogIn = () => {
         e.preventDefault();
 
         // Start the loading state
+        console.log("test");
         setLoading(true);
 
         try {
@@ -25,19 +26,20 @@ const LogIn = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    username: email, // using 'username' for the API request as a placeholder
+                    username: userName, 
                     password: password
                 }),
             });
 
             const data = await response.json();
+            console.log("test");
+            console.log("returned data", data);
 
             if (response.ok) {
-                // Assuming success means an authenticated state
-                auth.login(); // Call login from auth context
-                navigate("/dashboard"); // Redirect to the dashboard
+                console.log("returned data", data);
+                auth.login(); 
+                navigate("/dashboard"); 
             } else {
-                // Handle error returned by the API
                 setError(data.message || "Invalid email or password. Please try again.");
             }
         } catch (err) {
@@ -61,8 +63,8 @@ const LogIn = () => {
                                 placeholder="Email"
                                 required
                                 className="login-input"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={userName}
+                                onChange={(e) => setUserName(e.target.value)}
                             />
                         </div>
                         <div id="password-container">

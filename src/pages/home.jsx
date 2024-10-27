@@ -12,7 +12,6 @@ const Home = () => {
     const [socket, setSocket] = useState(null);
     
     const discordUserId = process.env.REACT_APP_DISCORD_USER_ID;
-    console.log("user id: ", discordUserId);
     useEffect(() => {
         let retryCount = 0;
         const maxRetries = 3;
@@ -20,10 +19,8 @@ const Home = () => {
         const connectWebSocket = () => {
             const newSocket = new WebSocket("wss://api.lanyard.rest/socket");
             
-            console.log(`Attempting to open socket (attempt ${retryCount + 1}/${maxRetries})`);
 
             newSocket.onopen = () => {
-                console.log("Opened socket connection");
                 // Send initial IDENTIFY payload
                 newSocket.send(JSON.stringify({
                     op: 2,
@@ -109,7 +106,6 @@ const Home = () => {
 
         // Update Spotify data
         if (data.spotify && data.listening_to_spotify) {
-            console.log(data.spotify);
             setCurrentSongData({
                 item: {
                     name: data.spotify.song,
