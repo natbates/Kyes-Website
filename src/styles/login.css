@@ -60,6 +60,7 @@
     transition: transform 0.3s ease;
     transform-origin: top left;
     animation-delay: 1s !important;
+    text-wrap: nowrap;
 }
 
 

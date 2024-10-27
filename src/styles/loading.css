@@ -33,6 +33,14 @@
     50%,100%{background-position: 100% 0,100% 100%,0    100%,0 0   }
   }
 
+.instant
+{
+    animation-delay: 0s;
+    animation: none;
+    width: 20px;
+    height: auto;
+    margin: 0 auto;
+}
 
 .point-five-seconds
 {
