@@ -44,7 +44,7 @@ const Photos = () => {
                         <div id="photo-scroll">
                             {photos.map((photo, index) => (
                                 <div
-                                    className={`photo-item ${focusedIndex !== index ? 'grayed-out' : ''}`}
+                                    className={`photo-item`}
                                     key={photo.name}
                                 >
                                     <img
