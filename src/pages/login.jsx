@@ -37,6 +37,8 @@ const LogIn = () => {
                 if (data.auth){
                     auth.login(); 
                     navigate("/dashboard"); 
+                } else {
+                    setError("Invalid email or password. Please try again.")
                 }
             } else {
                 setError(data.message || "Invalid email or password. Please try again.");
