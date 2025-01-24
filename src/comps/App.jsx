@@ -1,13 +1,11 @@
 import "../styles/app.css";
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import ContentHolder from "./contentHolder"
-import { AuthProvider } from "../contexts/authContext";
 
 export const ThemeContext = createContext(undefined);
 
 const ThemeProvider = ({children}) =>
 {
-
     const [theme, setTheme] = useState("light");
 
     const toggleTheme = () =>
@@ -28,11 +26,9 @@ const ThemeProvider = ({children}) =>
 const App = () =>
 {
     return (
-        <AuthProvider>
-            <ThemeProvider>
-                <ContentHolder/>
-            </ThemeProvider>
-        </AuthProvider>
+        <ThemeProvider>
+            <ContentHolder/>
+        </ThemeProvider>
     );
 }
 

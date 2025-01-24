@@ -3,7 +3,6 @@ import "../styles/home.css";
 import "../styles/discord.css";
 import { Link } from 'react-router-dom';
 import Loading from "../comps/loading";
-import { useAuth } from "../contexts/authContext";
 
 const Home = () => {
     const [currentSongData, setCurrentSongData] = useState(null);

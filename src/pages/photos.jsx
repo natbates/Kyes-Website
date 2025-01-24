@@ -1,41 +1,23 @@
 import "../styles/photos.css";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Loading from "../comps/loading.jsx";
-import { ref, listAll, getDownloadURL } from "firebase/storage";
-import { storage } from "../firebase"; 
 
 const Photos = () => {
     const [photos, setPhotos] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [focusedIndex, setFocusedIndex] = useState(null);
-
-    const fetchFirebasePhotos = async () => {
-        try {
-            const spacePhotosRef = ref(storage, 'space-photos/'); 
-            const res = await listAll(spacePhotosRef); 
-
-            const imagePromises = res.items.map(async (item) => {
-                const url = await getDownloadURL(item);
-                return { name: item.name, url }; 
-            });
-
-            const images = await Promise.all(imagePromises); 
-            setPhotos(images); 
-        } catch (error) {
-            console.error("Error fetching photos:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     useEffect(() => {
-        fetchFirebasePhotos();
+        const importAll = (r) => r.keys().map(r);
+        const images = importAll(require.context("../images", false, /\.(png|jpe?g|gif)$/));
+        setPhotos(images);
+        console.log(images);
+        setLoading(false);
     }, []);
 
     return (
         <div id="photos">
             <h1>Photos</h1>
-            <p>Here are some of my favourite space photos!</p>
+            <p>Here are some of my favorite space photos!</p>
             <div id="photo-container">
                 {loading ? (
                     <Loading delay="point-five-seconds" />
@@ -43,13 +25,10 @@ const Photos = () => {
                     photos.length > 0 ? (
                         <div id="photo-scroll">
                             {photos.map((photo, index) => (
-                                <div
-                                    className={`photo-item`}
-                                    key={photo.name}
-                                >
+                                <div className="photo-item" key={index}>
                                     <img
-                                        src={photo.url} 
-                                        alt={photo.name}
+                                        src={photo}
+                                        alt={`Photo ${index + 1}`}
                                         style={{
                                             pointerEvents: "none"
                                         }}

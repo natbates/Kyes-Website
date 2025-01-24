@@ -4,7 +4,7 @@
     "description": "kye portfolio",
     "main": "index.js",
     "scripts": {
-        "start": "PORT=8082 react-scripts start",
+        "start": "cross-env PORT=8082 react-scripts start",
         "build": "react-scripts build",
         "test": "echo \"Error: no test specified\" && exit 1",
         "eject": "react-scripts eject"
@@ -16,6 +16,7 @@
     "dependencies": {
         "@azure/msal-browser": "^3.26.1",
         "bootstrap": "^5.3.3",
+        "cross-env": "^7.0.3",
         "dotenv": "^16.4.5",
         "firebase": "^11.0.1",
         "node-fetch": "^2.7.0",
