@@ -1,0 +1,10 @@
+{
+  apps : [
+    {
+      name      : "My-Website",
+      script    : "npx",
+      interpreter: "none",
+      args: "serve -s build -p 8082"
+    }
+  ]
+}
